@@ -1,0 +1,131 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Angi
+providerId: angi
+created: '2026-07-03'
+modified: '2026-07-03'
+reconciled: false
+tags:
+- Home Services
+- Leads
+- Advertising
+- Plans
+description: >-
+  Angi does not publish official rate cards for its Angi Ads / Angi Leads pro
+  advertising program, and it does not sell API access as a metered product -
+  there is no per-call or per-token developer pricing because there is no
+  self-serve developer API. Pricing below is Angi's pro-facing lead-generation
+  and advertising pricing, compiled from third-party contractor reviews and
+  industry guides published in 2026 rather than an official Angi price list;
+  figures vary by trade, location, and job type and should be treated as
+  directional, not authoritative.
+notes: >-
+  reconciled is false because no primary-source Angi pricing page publishes
+  these numbers; every figure here is a third-party estimate. A standard
+  Angi lead is commonly sold to multiple (3-8, sometimes more) competing
+  pros simultaneously. Contracts are commonly 12 months with auto-renewal
+  and early-cancellation fees of roughly 30-35% of the remaining contract
+  value.
+sources:
+- https://www.leadtruffle.co/blog/angi-leads-cost-pricing-contractors-2026/
+- https://savullc.com/angi-pro-reviews/
+- https://improveandgrow.com/contractors-and-trades/is-angi-worth-it-for-contractors/
+- https://7ten.marketing/how-much-does-angies-list-cost-for-contractors/
+- https://massmonopoly.com/angi-vs-homeadvisor-2026-cost-breakdown/
+plans:
+- id: angi-leads-pay-per-lead
+  name: Angi Leads (Pay-Per-Lead)
+  type: usage
+  description: >-
+    Shared lead-generation model (formerly HomeAdvisor). Angi Leads sells a
+    homeowner project lead to multiple competing pros at once; pros pay per
+    lead accepted plus a recurring membership fee.
+  entries:
+  - label: Membership Fee
+    name: angi_leads_membership
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: US
+    unit: 1
+    price: third-party estimates of $200-$600+ per month
+    userMultiplied: false
+  - label: Per-Lead Cost
+    name: angi_leads_per_lead
+    type: usage
+    metric: leads
+    limit: -1
+    timeFrame: usage
+    geo: US
+    unit: 1
+    price: third-party estimates of $15-$120+ per lead depending on trade and market
+    userMultiplied: false
+  elements:
+  - name: Shared Homeowner Leads
+  - name: Job Type / Category Targeting
+  - name: Service Area Targeting
+- id: angi-ads-ppc
+  name: Angi Ads (Pay-Per-Click)
+  type: usage
+  description: >-
+    Paid placement/search-ranking product distinct from Angi Leads. Pros set
+    a budget and pay only when a homeowner clicks their ad, plus an annual
+    membership fee.
+  entries:
+  - label: Annual Membership
+    name: angi_ads_membership
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: year
+    geo: US
+    unit: 1
+    price: varies by region and service type - contact Angi Ads sales
+    userMultiplied: false
+  - label: Per-Click Cost
+    name: angi_ads_ppc
+    type: usage
+    metric: clicks
+    limit: -1
+    timeFrame: usage
+    geo: US
+    unit: 1
+    price: set by pro-defined advertising budget; per-click cost not publicly listed
+    userMultiplied: false
+  elements:
+  - name: Search Ranking Placement
+  - name: Self-Registration Webhook Lead Delivery
+- id: angi-contract-terms
+  name: Standard Contract Terms
+  type: enterprise
+  description: >-
+    Angi Leads/Angi Ads agreements are commonly structured as 12-month
+    contracts with auto-renewal; early cancellation can carry a fee.
+  entries:
+  - label: Contract Term
+    name: angi_contract_term
+    type: flat
+    metric: contract
+    limit: 12
+    timeFrame: month
+    geo: US
+    unit: 1
+    price: typically 12-month term with auto-renewal
+    userMultiplied: false
+  - label: Early Cancellation Fee
+    name: angi_early_cancellation
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: contract
+    geo: US
+    unit: 1
+    price: third-party estimates of 30-35% of remaining contract value
+    userMultiplied: false
+  elements:
+  - name: 60-Day Non-Renewal Notice
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

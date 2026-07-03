@@ -1,0 +1,88 @@
+aid: angi
+url: https://raw.githubusercontent.com/api-evangelist/angi/refs/heads/main/apis.yml
+name: Angi
+kind: company
+description: >-
+  Angi (formerly Angie's List, founded 1995) is a digital home services
+  marketplace connecting homeowners with home service professionals for repair,
+  maintenance, and improvement projects. Angie's List merged with IAC's HomeAdvisor
+  in 2017 under parent ANGI Homeservices Inc.; in March 2021 the consumer brand and
+  parent company were both renamed Angi, with HomeAdvisor continuing as the
+  pro-facing "Angi Leads" lead-generation business. IAC fully spun off its stake
+  in April 2025, making Angi Inc. (NASDAQ: ANGI) an independent public company.
+  Angi does not operate a self-serve public developer portal or publish an API
+  reference. It does offer a gated, partner-only lead-delivery mechanism: Angi
+  Ads/Angi Leads pushes new homeowner leads as JSON to a webhook URL a pro's CRM
+  provides (authenticated with an X-API-KEY header), and an OAuth-style "Sign in
+  with Angi" account-linking flow used by a short list of approved CRM/field-service
+  partners (ServiceTitan, Jobber) to receive lead and booking data. Both require a
+  direct arrangement with an Angi Ads Client Success Manager rather than self-serve
+  API keys.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Home Services
+- Marketplace
+- Leads
+- Angie's List
+- HomeAdvisor
+- IAC
+- Webhook
+- No Public API
+created: '2026-07-03'
+modified: '2026-07-03'
+specificationVersion: '0.19'
+apis:
+- aid: angi:angi-leads-delivery-api
+  name: Angi Leads Delivery (Webhook) API
+  tags:
+  - Leads
+  - Webhooks
+  - Lead Generation
+  - Partner Integration
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://intercom.help/angi/en/articles/10288125-setting-up-api-integration-with-angi
+  baseURL: https://www.angi.com
+  properties:
+  - url: https://intercom.help/angi/en/collections/12900573-api-integrations
+    type: Documentation
+  - url: https://intercom.help/angi/en/articles/10288125-setting-up-api-integration-with-angi
+    type: APIReference
+  description: Not a self-serve public API - there is no published base URL, API
+    reference, or API key signup. Once a pro or CRM partner is approved by an Angi
+    Ads Client Success Manager, Angi Ads/Angi Leads pushes each new homeowner lead
+    as a JSON POST to a webhook URL the partner's CRM supplies, authenticated with
+    an X-API-KEY header. Angi documents the lead field list in its help center and
+    also supports connecting via Zapier for CRMs without a native integration.
+    Verified integrations exist for ServiceTitan, Jobber, SmartMoving, ActiveProspect,
+    and Smith.ai.
+- aid: angi:angi-pro-account-linking
+  name: Angi Pro Account Linking (Sign in with Angi)
+  tags:
+  - OAuth
+  - Account Linking
+  - CRM Integration
+  - Partner
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://help.servicetitan.com/docs/angi-leads-integration
+  baseURL: https://www.angi.com
+  properties:
+  - url: https://help.servicetitan.com/docs/angi-leads-integration
+    type: Documentation
+  description: An OAuth-style "Sign in with Angi" account-linking flow used by a
+    short, approved list of CRM and field-service management partners (ServiceTitan,
+    Jobber) to connect a pro's Angi account and receive account, profile, and lead/
+    booking data into the partner platform's native booking screen. No public
+    client-registration process, scope list, or token-endpoint documentation is
+    published; access is arranged directly between Angi and the partner.
+common:
+- type: LinkedIn
+  url: https://www.linkedin.com/company/angi
+- type: Website
+  url: https://www.angi.com
+- type: Documentation
+  url: https://intercom.help/angi/en/collections/12900573-api-integrations
+- type: Plans
+  url: plans/angi-plans-pricing.yml
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

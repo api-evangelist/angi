@@ -1,0 +1,97 @@
+aid: angi
+name: Angi
+review:
+  question: Does Angi expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-03'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. Angi does not publish a self-serve
+    developer API of any kind - REST, GraphQL, WebSocket, or SSE. The only
+    documented integration surface is a partner-gated webhook: Angi Ads/Angi
+    Leads pushes lead JSON to a partner-supplied URL (server-to-server HTTP
+    POST, not a server-push subscription protocol the consumer connects to),
+    plus an OAuth-style "Sign in with Angi" account-linking flow used by a
+    short list of approved CRM partners. Neither is a WebSocket surface, and
+    there is no published channel/topic model to describe in AsyncAPI.
+findings:
+  summary: |
+    Angi does not publish a documented public WebSocket API, and more
+    broadly does not operate a self-serve public developer portal or API
+    reference at all. Angi (formerly Angie's List, rebranded March 2021
+    alongside parent ANGI Homeservices Inc. becoming Angi Inc.; fully spun
+    off from IAC in April 2025) integrates with pro CRMs through two gated,
+    partner-only mechanisms documented in its help center rather than a
+    developer-facing API catalog: (1) a lead-delivery webhook where Angi
+    Ads/Angi Leads POSTs new lead JSON to a URL supplied by the pro's CRM,
+    authenticated with an X-API-KEY header, set up by contacting an Angi
+    Ads Client Success Manager; and (2) an OAuth-style "Sign in with Angi"
+    account-linking flow used by approved partners (ServiceTitan, Jobber)
+    to pull lead and booking data into their own booking screens. Angi's
+    own GitHub organization (github.com/angieslist) contains only style
+    guides and forked utility libraries, not API clients or SDKs, and has
+    been inactive since 2022. No WebSocket, SSE, or other realtime
+    subscription transport is documented anywhere in these materials.
+  openSource: |
+    No part of Angi's lead-delivery or account-linking integration is open
+    source. The dormant github.com/angieslist organization hosts internal
+    tooling forks (an Airbnb JavaScript style guide fork, a PetaPoco ORM
+    fork, a gulp-shell fork) unrelated to the pro/CRM integration surface.
+  transports:
+    - protocol: Webhook (HTTP POST)
+      scheme: https
+      documented: true
+      note: Angi Ads/Angi Leads pushes lead JSON to a partner-supplied URL, authenticated with an X-API-KEY header. No Angi-hosted base URL or endpoint reference is published; the receiving URL belongs to the partner's CRM.
+    - protocol: OAuth-style account linking
+      scheme: https
+      documented: true
+      note: "\"Sign in with Angi\" used by approved CRM/field-service partners (ServiceTitan, Jobber) to connect a pro account. No public client-registration, scope list, or token-endpoint documentation is published."
+    - protocol: REST
+      scheme: https
+      documented: false
+      note: No self-serve REST API reference, base URL, or API-key signup is published for third-party developers.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented anywhere in Angi's help center, partner integration guides, or corporate/investor materials as of the review date.
+  endpointsConfirmedRest:
+    endpointsModeled: none
+    reason: |
+      No public API reference or base URL is published for Angi's lead
+      or account-linking mechanisms, so no request-line endpoint list can
+      be honestly confirmed or modeled. The integration is described in
+      help-center prose (field lists, setup steps) rather than an API
+      reference document.
+sources:
+  - url: https://intercom.help/angi/en/articles/10288125-setting-up-api-integration-with-angi
+    type: Documentation
+    note: Describes JSON lead delivery to a partner-supplied webhook URL; setup requires an Angi ID, contact email, webhook URL, and optional CRM key. No base URL or auth scheme is published beyond confirming JSON compatibility.
+  - url: https://intercom.help/angi/en/collections/12900573-api-integrations
+    type: Documentation
+    note: Help-center collection listing Zapier custom-lead-integration, general CRM integration, and Jobber connection articles.
+  - url: https://help.servicetitan.com/docs/angi-leads-integration
+    type: Documentation
+    note: Describes the "Sign in with Angi" account-linking flow feeding leads into ServiceTitan's Booking screen; no endpoint or payload schema published.
+  - url: http://help.smartmoving.com/en/articles/4968383-connecting-angi-ads-formerly-known-as-angie-s-list
+    type: Documentation
+    note: Confirms Angi Ads webhook integration requires a Webhook URL plus an X-API-KEY header field; states webhook integration is not available to all pros and requires contacting an Angi Ads Client Success Manager.
+  - url: https://activeprospect.com/leadconduit/integrations/angi/
+    type: Documentation
+    note: Distinguishes Angi Leads (Angi-originated, Angi-priced leads) from Angi Ads (pro-managed paid campaigns); lists 25+ lead data fields exchanged, no transport detail.
+  - url: https://github.com/angieslist
+    type: SourceCode
+    note: Angie's List GitHub organization - 5 repos, all internal tooling forks unrelated to a public API, last updated 2022.
+  - url: https://en.wikipedia.org/wiki/Angi_Inc.
+    type: Documentation
+    note: Corporate history - Angie's List (1995) merged with IAC's HomeAdvisor in 2017 under ANGI Homeservices Inc.; renamed Angi / Angi Inc. in March 2021; IAC completed its spin-off of Angi in April 2025.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface exists, and no server-push transport of
+    any kind is documented on Angi's own integration surface, so no
+    AsyncAPI document was created. Angi's public-facing "API" is limited to
+    a partner-gated lead-delivery webhook and an OAuth-style account-linking
+    flow, both arranged directly with an Angi Ads representative rather
+    than through a self-serve developer program.
