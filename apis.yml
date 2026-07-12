@@ -75,6 +75,10 @@ apis:
     client-registration process, scope list, or token-endpoint documentation is
     published; access is arranged directly between Angi and the partner.
 common:
+- type: VulnerabilityDisclosure
+  url: security/angi-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/angi-domain-security.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/angi
 - type: Website
