@@ -18,7 +18,19 @@ description: >-
   partners (ServiceTitan, Jobber) to receive lead and booking data. Both require a
   direct arrangement with an Angi Ads Client Success Manager rather than self-serve
   API keys.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: paid
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Paid
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/angi.png
 tags:
 - Home Services
 - Marketplace
