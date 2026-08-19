@@ -42,7 +42,7 @@ tags:
 - No Public API
 created: '2026-07-03'
 modified: '2026-07-03'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: angi:angi-leads-delivery-api
   name: Angi Leads Delivery (Webhook) API
