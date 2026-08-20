@@ -37,6 +37,15 @@ tags:
 - Leads
 - Angie's List
 - HomeAdvisor
+- IaC
+- Webhook
+- No Public API
+tags_raw:
+- Home Services
+- Marketplace
+- Leads
+- Angie's List
+- HomeAdvisor
 - IAC
 - Webhook
 - No Public API
@@ -47,6 +56,11 @@ apis:
 - aid: angi:angi-leads-delivery-api
   name: Angi Leads Delivery (Webhook) API
   tags:
+  - Leads
+  - Webhook
+  - Lead Generation
+  - Partner Integration
+  tags_raw:
   - Leads
   - Webhooks
   - Lead Generation
@@ -70,6 +84,11 @@ apis:
 - aid: angi:angi-pro-account-linking
   name: Angi Pro Account Linking (Sign in with Angi)
   tags:
+  - Authentication
+  - Account Linking
+  - CRM Integration
+  - Partner
+  tags_raw:
   - OAuth
   - Account Linking
   - CRM Integration
