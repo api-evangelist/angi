@@ -18,6 +18,17 @@ description: >-
   partners (ServiceTitan, Jobber) to receive lead and booking data. Both require a
   direct arrangement with an Angi Ads Client Success Manager rather than self-serve
   API keys.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: paid
   onboarding: unknown
