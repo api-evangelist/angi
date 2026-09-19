@@ -98,7 +98,7 @@ apis:
   - Authentication
   - Account Linking
   - CRM Integration
-  - Partner
+  - Partners
   tags_raw:
   - OAuth
   - Account Linking
