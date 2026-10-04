@@ -78,7 +78,6 @@ apis:
   - Partner Integration
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://intercom.help/angi/en/articles/10288125-setting-up-api-integration-with-angi
-  baseURL: https://www.angi.com
   properties:
   - url: https://intercom.help/angi/en/collections/12900573-api-integrations
     type: Documentation
@@ -106,7 +105,6 @@ apis:
   - Partner
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://help.servicetitan.com/docs/angi-leads-integration
-  baseURL: https://www.angi.com
   properties:
   - url: https://help.servicetitan.com/docs/angi-leads-integration
     type: Documentation
