@@ -134,3 +134,42 @@ plans:
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - metered
+  - subscription
+  units:
+  - negotiated
+  - period
+  plans:
+  - name: Angi Leads (Pay-Per-Lead)
+    access: other
+    model: metered
+    model_how: stated
+    units:
+    - other
+    - period
+    periods:
+    - month
+    - per-use
+  - name: Angi Ads (Pay-Per-Click)
+    access: other
+    model: metered
+    model_how: stated
+    units:
+    - other
+    - period
+    periods:
+    - per-use
+    - year
+  - name: Standard Contract Terms
+    access: enterprise
+    model: subscription
+    model_how: derived
+    units:
+    - negotiated
+    periods:
+    - month
+    - term
