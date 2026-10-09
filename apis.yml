@@ -35,6 +35,10 @@ accessModel:
   trial: false
   try_now: false
   public: false
+  gated: partner
+  gated_source:
+  - tag:No Public API
+  - description
   label: Paid
   confidence: medium
   source:
@@ -50,7 +54,6 @@ tags:
 - HomeAdvisor
 - IaC
 - Webhook
-- No Public API
 tags_raw:
 - Home Services
 - Marketplace
@@ -59,7 +62,6 @@ tags_raw:
 - HomeAdvisor
 - IAC
 - Webhook
-- No Public API
 created: '2026-07-03'
 modified: '2026-07-03'
 specificationVersion: '0.23'
@@ -130,3 +132,5 @@ common:
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
+x-tags-removed:
+- No Public API
